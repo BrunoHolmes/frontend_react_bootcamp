@@ -29,11 +29,18 @@ function App() {
         })
     }, []);
 
-    function handleAddProject() {
+    async function handleAddProject() {
         //projects.push(`Novo projeto ${Date.now()}`)
-        setProjects([...projects, `Novo projeto ${Date.now()}`]); //Aplicação do conceito da imutabilidade
+        // setProjects([...projects, `Novo projeto ${Date.now()}`]); //Aplicação do conceito da imutabilidade
 
-        console.log(projects);
+        const response = await api.post('projects', {
+            title: `Novo projeto ${Date.now()}`,
+            owner: "Bruno Holmes"
+        });
+
+        const project = response.data;
+
+        setProjects([...projects, project]);
     }
 
     return (
