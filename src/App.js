@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
+import './App.css';
+import backgroundImagem from './assets/background.jpg';
+
 import Header from './components/Header';
+
 
 /**
  * Componente
@@ -31,6 +35,8 @@ function App() {
         //<> </> FRAGMENTAÇÃO para não poluir o HTML com div's
         <>
             <Header title="Projects" />
+
+            <img width={300} src={backgroundImagem} />
 
             <ul>
                 {projects.map(project => <li key={project}>{project}</li>)}
